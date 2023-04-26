@@ -35,10 +35,10 @@ function setup() {
   );
 
   // Scoring board
-  fill(255);
-  textSize(12);
-  text('High score: ', 50, height - 30);
-  text('Current score: ', 50, height - 15);
+  // fill(255);
+  // textSize(12);
+  // text('High score: ' + highScore, 50, height - 30);
+  // text('Current score: ' + currentScore, 50, height - 15);
 
   // Create rectangle for game area
   fill(255);
@@ -117,15 +117,5 @@ function draw() {
     let y1 = random(minY, maxY);
     let y2 = random(minY, maxY);
     line(x1, y1, x2, y2);
-
-    Scoring board
-    fill(255);
-    textSize(12);
-    erase();
-    text('High score: ' + highScore, 50, height - 30);
-    text('Current score: ' + currentScore, 50, height - 15);
-    noErase();
-    text('High score: ' + highScore, 50, height - 30);
-    text('Current score: ' + currentScore, 50, height - 15);
   }
 }
