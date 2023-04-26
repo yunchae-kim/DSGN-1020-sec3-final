@@ -1,13 +1,12 @@
 // Create variables
 let located = false; // Variable to check if dot has been placed
 let started = false; // Varaible to check if game has started
-let xCor = 0; // X coordinate of the dot
-let yCor = 0; // Y coordinate of the dot
 let currentScore = 0; // Current score of the game
 let highScore = 0; // High score of the game
 let crashed = false; // Check if dot has been crashed
 let dotWidth = 10;
 let dotHeight = 10;
+
 let canvasWidth = 400;
 let canvasHeight = 400;
 let bgWidth = 300;
@@ -17,6 +16,7 @@ let maxX = (canvasWidth - bgWidth) / 2 + bgWidth;
 let minY = (canvasHeight - bgHeight) / 2;
 let maxY = (canvasHeight - bgHeight) / 2 + bgHeight;
 let frameRateSetting = 1;
+const setScoreInterval = setInterval(incrementScore, 1000);
 
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
@@ -81,7 +81,8 @@ function startGame() {
 
     // Update score
     currentScore = 0;
-    setInterval(incrementScore, 1000);
+    setScoreInterval;
+
     loop();
   }
 }
@@ -101,8 +102,6 @@ function resetGame() {
   // Create rectangle for game area
   fill(255);
   rect(200, 200, 300, 300);
-
-  // clearInterval(setScoreInterval);
 
   noLoop();
 }
@@ -137,6 +136,8 @@ function draw() {
     let y1 = random(minY, maxY);
     let y2 = random(minY, maxY);
     line(x1, y1, x2, y2);
+
+    // Check if line crashes with dot
   }
   updateScore();
 }

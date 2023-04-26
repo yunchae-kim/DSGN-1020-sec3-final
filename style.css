@@ -1,8 +1,53 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
 canvas {
   display: block;
+}
+
+button:hover {
+  background-color: darksalmon;
+}
+
+.main-container {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.instruction {
+  position: absolute;
+  top: 430px;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-box {
+  margin-bottom: 1rem;
+}
+
+.input-box {
+  width: 200px;
+  height: 30px;
+  border: 2px solid black;
+  padding-left: 10px;
+}
+
+.input-box::placeholder {
+  color: white;
+}
+
+.input-box:hover {
+  border: 2px solid yellowgreen;
+}
+
+.input-box:focus {
+  outline: none;
+}
+
+.input-box:focus::placeholder {
+  color: red;
 }
