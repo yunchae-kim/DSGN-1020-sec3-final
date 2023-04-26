@@ -16,7 +16,7 @@ let minX = (canvasWidth - bgWidth) / 2;
 let maxX = (canvasWidth - bgWidth) / 2 + bgWidth;
 let minY = (canvasHeight - bgHeight) / 2;
 let maxY = (canvasHeight - bgHeight) / 2 + bgHeight;
-let frameRateSetting = 2;
+let frameRateSetting = 1;
 
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
@@ -35,10 +35,10 @@ function setup() {
   );
 
   // Scoring board
-  // fill(255);
-  // textSize(12);
-  // text('High score: ' + highScore, 50, height - 30);
-  // text('Current score: ' + currentScore, 50, height - 15);
+  fill(255);
+  textSize(12);
+  text('High score: ', 50, height - 30);
+  text('Current score: ', 50, height - 15);
 
   // Create rectangle for game area
   fill(255);
@@ -82,7 +82,6 @@ function startGame() {
     // Update score
     currentScore = 0;
     setInterval(incrementScore, 1000);
-
     loop();
   }
 }
@@ -103,11 +102,32 @@ function resetGame() {
   fill(255);
   rect(200, 200, 300, 300);
 
+  // clearInterval(setScoreInterval);
+
   noLoop();
 }
 
 function incrementScore() {
   currentScore++;
+}
+
+function updateScore() {
+  // Update highscore
+  if (currentScore > highScore) {
+    highScore = currentScore;
+    fill(0, 0, 0);
+    rect(150, 365, 40, 15);
+    fill(255);
+    textSize(12);
+    text(highScore, 150, height - 30);
+  }
+  // Update score
+  fill(0, 0, 0);
+  rect(150, 380, 40, 15);
+
+  fill(255);
+  textSize(12);
+  text(currentScore, 150, height - 15);
 }
 
 function draw() {
@@ -118,4 +138,5 @@ function draw() {
     let y2 = random(minY, maxY);
     line(x1, y1, x2, y2);
   }
+  updateScore();
 }
